@@ -22,8 +22,9 @@
     recurse: true
   become: yes
 
+# Match tar -C /usr/local -xzf go1.15.7.linux-amd64.tar.gz
 - name: "Go-Lang | Unpack distribution"
   unarchive:
     src: "{{ go_temporary_dir }}/{{ go_distribution_filename }}.tar.gz"
-    dest: "{{ GOROOT }}"
+    dest: "/usr/local"
     copy: "no"
