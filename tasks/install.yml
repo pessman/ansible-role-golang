@@ -22,6 +22,7 @@
     (not build_go_from_source) and
     ((expected_go_version_output|string not in current_go_version.stdout|default('')) or
     (go_install_clean))
+  become: yes
 
 - name: "Go-Lang | Verify version"
   command: "{{ GOROOT }}/bin/go version"
