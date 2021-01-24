@@ -11,6 +11,7 @@
   file:
     path: "{{ GOROOT }}"
     state: absent
+  become: yes
 
 - name: "Go-Lang | Ensure directory is writable"
   file:
@@ -19,6 +20,7 @@
     owner: "{{ fubarhouse_user }}"
     mode: 0755
     recurse: true
+  become: yes
 
 - name: "Go-Lang | Unpack distribution"
   unarchive:
