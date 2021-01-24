@@ -25,14 +25,5 @@
 - name: "Go-Lang | Unpack distribution"
   unarchive:
     src: "{{ go_temporary_dir }}/{{ go_distribution_filename }}.tar.gz"
-    dest: "{{ go_temporary_dir }}"
+    dest: "{{ GOROOT }}"
     copy: "no"
-
-- name: "Go-Lang | Moving to installation directory"
-  command: "mv -f {{ go_temporary_dir }}/go {{ GOROOT }}"
-  when: not build_go_from_source
-
-- name: "Go-Lang | Remove temporary data"
-  file:
-    path: "{{ go_temporary_dir }}/go/"
-    state: absent
