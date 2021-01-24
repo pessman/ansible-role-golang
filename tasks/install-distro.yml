@@ -28,12 +28,6 @@
     dest: "{{ go_temporary_dir }}"
     copy: "no"
 
-- name: "Go-Lang | Removing existing installation"
-  file:
-    path: "{{ GOROOT }}"
-    state: absent
-  when: not build_go_from_source
-
 - name: "Go-Lang | Moving to installation directory"
   command: "mv -f {{ go_temporary_dir }}/go {{ GOROOT }}"
   when: not build_go_from_source
